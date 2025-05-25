@@ -93,12 +93,12 @@ class Vector2d{
   }
 
   // Normalization
-  [[nodiscard]] constexpr Vector2d normalized() const noexcept {
+  [[nodiscard]] Vector2d normalized() const noexcept {
     float len = length();
     return len > kEpsilon ? (*this / len) : *this;
   }
 
-  constexpr Vector2d& normalize() noexcept {
+  Vector2d& normalize() noexcept {
     float len = length();
     if (len > kEpsilon) { _x /= len;  _y /= len; }
     return *this;
