@@ -112,6 +112,8 @@ class Vector2d{
   constexpr void setY(float newY) noexcept { _y = newY;}
 
   void print() const { std::cout << "(" << _x << ", " << _y << ")";}
+  void println() const { std::cout << "(" << _x << ", " << _y << ")\n";}
+
 
 
  private:
@@ -124,6 +126,10 @@ static inline const Vector2d Zero  {0.0f, 0.0f};
 static inline const Vector2d UnitX {1.0f, 0.0f};
 static inline const Vector2d UnitY {0.0f, 1.0f};
 
+//todo: 改为使用format, 注意std::format是20的
+[[nodiscard]] std::string to_Str(const Vector2d& vec) {
+  return std::string("(") + std::to_string(vec.x()) + ", " + std::to_string(vec.y()) + ")";
+}
 
 }
 
