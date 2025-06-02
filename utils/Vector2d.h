@@ -122,7 +122,7 @@ static inline const Vector2d UnitX {1.0f, 0.0f};
 static inline const Vector2d UnitY {0.0f, 1.0f};
 
 //todo: 改为使用format, 注意std::format是20的
-[[nodiscard]] std::string to_Str(const Vector2d& vec) {
+[[nodiscard]] inline std::string to_Str(const Vector2d& vec) {
   return std::string("(") + std::to_string(vec.x()) + ", " + std::to_string(vec.y()) + ")";
 }
 
