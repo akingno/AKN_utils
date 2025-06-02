@@ -12,8 +12,8 @@ namespace AKN{
 class Vector2d{
 
  public:
-  constexpr Vector2d():_x(0.0), _y(0.0){};
-  constexpr Vector2d(float x, float y):_x(x), _y(y){}
+  constexpr Vector2d():x(0.0), y(0.0){};
+  constexpr Vector2d(float x, float y):x(x), y(y){}
   ~Vector2d() = default;
   Vector2d(const Vector2d&) = default;
   Vector2d(Vector2d&&) noexcept = default;
@@ -22,45 +22,45 @@ class Vector2d{
 
   // Add
   [[nodiscard]] constexpr Vector2d operator+(const Vector2d& _vec2) const noexcept{
-    return {_x+_vec2._x, _y+_vec2._y};
+    return {x+_vec2.x, y+_vec2.y};
   }
 
   constexpr Vector2d& operator+=(const Vector2d& _vec2) noexcept{
-    _x += _vec2._x; _y += _vec2._y; return *this;
+    x += _vec2.x; y += _vec2.y; return *this;
   }
 
   // Minus
   [[nodiscard]] constexpr Vector2d operator-(const Vector2d& rhs) const noexcept {
-    return {_x - rhs._x, _y - rhs._y};
+    return {x - rhs.x, y - rhs.y};
   }
   constexpr Vector2d& operator-=(const Vector2d& rhs) noexcept {
-    _x -= rhs._x;  _y -= rhs._y;  return *this;
+    x -= rhs.x;  y -= rhs.y;  return *this;
   }
-  [[nodiscard]] constexpr Vector2d operator-() const noexcept { return {-_x, -_y}; }
+  [[nodiscard]] constexpr Vector2d operator-() const noexcept { return {-x, -y}; }
 
   // Scalar Product
   [[nodiscard]] constexpr Vector2d operator*(float k) const noexcept {
-    return {_x * k, _y * k};
+    return {x * k, y * k};
   }
   constexpr Vector2d& operator*=(float k) noexcept {
-    _x *= k;  _y *= k;  return *this;
+    x *= k;  y *= k;  return *this;
   }
 
   friend constexpr Vector2d operator*(float k, const Vector2d& v) noexcept {
-    return {v._x * k, v._y * k};
+    return {v.x * k, v.y * k};
   }
 
   // Scalar Div
   [[nodiscard]] constexpr Vector2d operator/(float k) const noexcept {
-    return {_x / k, _y / k};
+    return {x / k, y / k};
   }
   constexpr Vector2d& operator/=(float k) noexcept {
-    _x /= k;  _y /= k;  return *this;
+    x /= k;  y /= k;  return *this;
   }
 
   // Length
   [[nodiscard]] constexpr float length2() const noexcept {
-    return _x * _x + _y * _y;
+    return x * x + y * y;
   }
 
   [[nodiscard]] float length() const noexcept {
@@ -98,22 +98,17 @@ class Vector2d{
     return len > kEpsilon ? (*this / len) : *this;
   }
 
+  constexpr void set(float newX, float newY) noexcept {x = newX; y = newY;}
 
-  [[nodiscard]] constexpr float x() const noexcept { return _x; }
-  [[nodiscard]] constexpr float y() const noexcept { return _y; }
-
-  constexpr void set(float newX, float newY) noexcept {_x = newX; _y = newY;}
-  constexpr void setX(float newX) noexcept { _x = newX;}
-  constexpr void setY(float newY) noexcept { _y = newY;}
-
-  void print() const { std::cout << "(" << _x << ", " << _y << ")";}
-  void println() const { std::cout << "(" << _x << ", " << _y << ")\n";}
+  void print() const { std::cout << "(" << x << ", " << y << ")";}
+  void println() const { std::cout << "(" << x << ", " << y << ")\n";}
 
 
 
- private:
-  float _x;
-  float _y;
+public:
+  float x;
+  float y;
+private:
   static constexpr float kEpsilon = 1e-6f;
 };
 
@@ -123,7 +118,7 @@ static inline const Vector2d UnitY {0.0f, 1.0f};
 
 //todo: 改为使用format, 注意std::format是20的
 [[nodiscard]] inline std::string to_Str(const Vector2d& vec) {
-  return std::string("(") + std::to_string(vec.x()) + ", " + std::to_string(vec.y()) + ")";
+  return std::string("(") + std::to_string(vec.x) + ", " + std::to_string(vec.y) + ")";
 }
 
 }
