@@ -14,6 +14,7 @@ class Vector2d{
  public:
   constexpr Vector2d():x(0.0), y(0.0){};
   constexpr Vector2d(float x, float y):x(x), y(y){}
+  constexpr Vector2d(int x, int y):x(static_cast<float>(x)), y(static_cast<float>(y)){}
   ~Vector2d() = default;
   Vector2d(const Vector2d&) = default;
   Vector2d(Vector2d&&) noexcept = default;
