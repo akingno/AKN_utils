@@ -7,7 +7,7 @@
 
 #include <cmath>
 #include <iostream>
-namespace AKN{
+namespace ak_util{
 
 class Vector2d{
 
