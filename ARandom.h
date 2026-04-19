@@ -2,14 +2,14 @@
 // Created by jacob on 2025/9/12.
 //
 
-#ifndef AK__RANDOM_H_
-#define AK__RANDOM_H_
+#ifndef AKN_RANDOM_H_
+#define AKN_RANDOM_H_
 
 #include <random>
 #include <atomic>
 #include <chrono>
 
-namespace AkRandom {
+namespace akn{
 
 namespace detail {
     constexpr uint64_t splitmix64(uint64_t x) {

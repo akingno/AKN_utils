@@ -2,10 +2,10 @@
 // Created by jacob on 2025/9/12.
 //
 
-#ifndef AKN_LIBS__AMATHUTILS_H_
-#define AKN_LIBS__AMATHUTILS_H_
+#ifndef AKN_AMATHUTILS_H_
+#define AKN_AMATHUTILS_H_
 
-namespace ak_util {
+namespace akn{
 
 /**
  *

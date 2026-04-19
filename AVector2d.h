@@ -2,12 +2,12 @@
 // Created by jacob on 2025/5/26.
 //
 
-#ifndef TESTMAP__VECTOR2D_H_
-#define TESTMAP__VECTOR2D_H_
+#ifndef AKN_VECTOR2D_H_
+#define AKN_VECTOR2D_H_
 
 #include <cmath>
 #include <iostream>
-namespace ak_util{
+namespace akn{
 
 class Vector2d{
 
@@ -126,4 +126,4 @@ static inline const Vector2d UnitY {0.0f, 1.0f};
 
 
 
-#endif//TESTMAP__VECTOR2D_H_
+#endif
